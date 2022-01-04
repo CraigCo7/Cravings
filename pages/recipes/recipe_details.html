@@ -1,0 +1,21 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+<div class="recipe_outer">
+    <div class="recipe_inner">
+        <h2 class="recipe_name"> {{ recipe.name }} </h2>
+        <div class="recipe_photo_container">
+        <img class="recipe_photo" src="{{ recipe.photo.url }}" alt="Photo of Dish">
+    </div>
+        <p class="recipe_description">About = {{ recipe.about }}</p>
+        <!-- <p>{{ recipe.ingredients }}</p> -->
+        <p class="recipe_description">Procedure = {{ recipe.procedure }}</p>
+        <p class="recipe_description">Difficulty = {{ recipe.difficulty }}</p>
+        <p class="recipe_description">Favourite = {{ recipe.favourite }}</p>
+        <p class="recipe_description">Bookmark = {{ recipe.bookmark }}</p>
+    </div>
+</div>
+
+
+{% endblock %}

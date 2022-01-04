@@ -1,0 +1,23 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <h1>Your Recipes!
+    </h1>
+    <div class="recipes">
+        {% for recipe in recipes %}
+            <div class="recipe">
+                <a href="{% url 'recipes:recipePage' slug=recipe.slug %}"><h2>Name: {{ recipe.name }}</h2></a>
+                <p class="recipe_description">About = {{ recipe.about }}</p>
+                <!-- <p>{{ recipe.ingredients }}</p> -->
+                <p class="recipe_description">Procedure = {{ recipe.procedure }}</p>
+                <p class="recipe_description">Difficulty = {{ recipe.difficulty }}</p>
+                <p class="recipe_description">Favourite = {{ recipe.favourite }}</p>
+                <p class="recipe_description">Bookmark = {{ recipe.bookmark }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    {% endblock %}
+
+
+    <!-- {% url 'recipePage' %} -->
+    <!-- {% url 'recipePage' slug=recipe.slug %} -->

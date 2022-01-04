@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Login</title>
+</head>
+<body class="body_base">
+    <div class="header">
+        <div class="inner_header">
+            <div class="logo_container">
+                <h1 class="header_logo">Cravings</h1>
+            </div>
+            <ul class="nav_bar">
+                <a href=""><li>Home</li></a>
+                <a href="/recipes"><li>Recipes</li></a>
+                <a href=""><li>Profile</li></a>
+                <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Logout</button>
+                </form>
+            </ul>
+        </div>
+    </div>
+{% block content %}
+{% endblock %}
+</body>
+</html>

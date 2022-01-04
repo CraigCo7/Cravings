@@ -1,0 +1,183 @@
+@font-face {
+    font-family: "title";
+    src: url(../fonts/theStarInTheMidnight.ttf);
+}
+@font-face{
+    font-family: "text";
+    src: url(../fonts/ModernSans-Light.otf);
+}
+/* Base Webpage */
+
+*{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    text-decoration: none;
+}
+
+/* Base Header layout */
+
+.header{
+    top: 0px;
+    position: fixed;
+    width: 100vw;
+    height: 80px;
+    display: block;
+    background-color: white;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    z-index: 2;
+}
+
+.inner_header{
+    width: 1000px;
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+    background-color: white;
+}
+
+.logo_container{
+    height: 100%;
+    display: table;
+    float: left;
+    margin-left: 15px;
+}
+
+.header_logo{
+    color: black;
+    font-family:'title';
+    font-weight: lighter;
+    height: 100%;
+    display: table-cell;
+    font-size: 65px;
+}
+
+.nav_bar{
+    float: right;
+    height: 100%;
+}
+
+.nav_bar a{
+    height: 100%;
+    display: table;
+    float: left;
+    padding: 0px 20px;
+}
+
+.nav_bar a li{
+    color: black;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.body_base{
+    background-color: #544f4c;
+    background-size: contain;
+    height: auto;
+    width: 100vw;
+    position: relative;
+    margin-top: 80px;
+}
+
+/* Homepage */
+
+.body_home {
+    background-image:url(../images/landingPage.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+
+.description_home{
+    width: 50vw;
+    position: absolute;
+    padding: 0px;
+    margin: 0px;
+    left: 25vw;
+    top: 35vh;
+    color: white;
+    text-align:justify;
+    text-align-last: center;
+    font-family:'text';
+
+}
+
+.buttonOne_home {
+    border: none;
+    color: black;
+    padding: 16px 32px;
+    position: relative;
+    left: 35vw;
+    top: 50vh;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 6px 3px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 20px;
+    font-family: 'text';
+    font-weight: bolder;
+}
+
+.buttonTwo_home {
+    border: none;
+    color: black;
+    padding: 16px 32px;
+    position: relative;
+    left: 50vw;
+    top: 50vh;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 6px 3px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 20px;
+    font-family: 'text';
+    font-weight: bolder;
+}
+
+.title_home{
+    color:white;
+    font-size: 10em;
+    font-family:'title';
+    position: absolute;
+    left: 38vw;
+    top: 8vh;
+    font-weight: lighter;
+}
+
+/* RecipeHome Page */
+.recipe_description{
+    color: white;
+    text-align:justify;
+    text-align-last: center;
+    font-family:'text';
+}
+
+/* Recipe Page */
+
+.recipe_outer{
+    position: relative;
+    height: 100%;
+}
+
+.recipe_name{
+    color: white;
+    font-family: 'text';
+    font-size: 10em;
+}
+
+.recipe_photo_container{
+    height: 40vw;
+    width: auto;
+}
+
+.recipe_photo{
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+}
