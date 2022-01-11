@@ -5,6 +5,10 @@ from django.db import models
 from django.db.models.fields import BLANK_CHOICE_DASH, AutoField, CharField, SlugField
 from django.utils.text import slugify
 from django.urls import reverse
+from django.contrib.auth.models import User
+from django.dispatch import receiver
+from django.db.models.signals import pre_save
+from Cravings.utils import unique_slug_generator
 
 # Create your models here.
 
@@ -16,8 +20,8 @@ class Ingredient(models.Model):
         return self.name
 
 class Recipe(models.Model):
-    name = models.CharField(max_length=100)
-    slug = models.SlugField(unique=True, max_length=100)
+    title = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=100, null=True, blank=True)
     about = models.TextField(blank=True, max_length=300)
     ingredients = models.ManyToManyField(Ingredient)
     TIME_CHOICES = (
@@ -39,10 +43,18 @@ class Recipe(models.Model):
     favourite = models.BooleanField(default=False)
     bookmark = models.BooleanField(default=False)
     date = models.DateField(auto_now_add=True)
+    author = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
 
 
     def __str__(self):
-        return self.name
+        return self.title
 
-    def get_absolute_url(self):
-        return reverse('article_detail', kwargs={'slug': self.slug})
+def slug_generator(sender, instance, *args, **kwargs):
+        if not instance.slug:
+            instance.slug = unique_slug_generator(instance)
+
+pre_save.connect(slug_generator, sender=Recipe)
+
+    # def get_absolute_url(self):
+    #     return reverse('article_detail', kwargs={'slug': self.slug})
+

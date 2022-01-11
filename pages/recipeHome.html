@@ -6,18 +6,21 @@
     <div class="recipes">
         {% for recipe in recipes %}
             <div class="recipe">
-                <a href="{% url 'recipes:recipePage' slug=recipe.slug %}"><h2>Name: {{ recipe.name }}</h2></a>
-                <p class="recipe_description">About = {{ recipe.about }}</p>
-                <!-- <p>{{ recipe.ingredients }}</p> -->
-                <p class="recipe_description">Procedure = {{ recipe.procedure }}</p>
-                <p class="recipe_description">Difficulty = {{ recipe.difficulty }}</p>
-                <p class="recipe_description">Favourite = {{ recipe.favourite }}</p>
-                <p class="recipe_description">Bookmark = {{ recipe.bookmark }}</p>
+                {% if recipe.slug != null %}
+                    <a href="{{ recipe.slug }}"><h2>Name: {{ recipe.title }}</h2></a>
+                    <p class="recipe_description">About = {{ recipe.about }}</p>
+                    <!-- <p>{{ recipe.ingredients }}</p> -->
+                    <p class="recipe_description">Slug = {{ recipe.slug }} </p>
+                    <p class="recipe_description">Procedure = {{ recipe.procedure }}</p>
+                    <p class="recipe_description">Difficulty = {{ recipe.difficulty }}</p>
+                    <p class="recipe_description">Favourite = {{ recipe.favourite }}</p>
+                    <p class="recipe_description">Bookmark = {{ recipe.bookmark }}</p>
+                {% endif %}
             </div>
         {% endfor %}
     </div>
     {% endblock %}
-
-
+7991001194794
+    <!-- {% url 'recipes:recipePage' slug=recipe.slug %} -->
     <!-- {% url 'recipePage' %} -->
     <!-- {% url 'recipePage' slug=recipe.slug %} -->
