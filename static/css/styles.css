@@ -27,6 +27,7 @@
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     z-index: 2;
+    overflow: hidden;
 }
 
 .inner_header{
@@ -39,9 +40,10 @@
 
 .logo_container{
     height: 100%;
-    display: table;
+    display: relative;
     float: left;
     margin-left: 15px;
+    margin-bottom: 50px;
 }
 
 .header_logo{
@@ -54,21 +56,49 @@
 }
 
 .nav_bar{
-    float: right;
+    display: table;
+    margin-left: 45vw;
     height: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+ul#horizontal-list{
+	min-width: 696px;
+	list-style: none;
+	padding-top: 30px;
+	}
+ul#horizontal-list li{
+	display: inline;
+    margin: 0px 10px;
 }
 
 .nav_bar a{
-    height: 100%;
-    display: table;
-    float: left;
-    padding: 0px 20px;
+    color:black;
+    font-family: 'text';
 }
 
-.nav_bar a li{
-    color: black;
-    display: table-cell;
-    vertical-align: middle;
+.nav_bar button{
+    color:black;
+    font-family: 'text';
+    font-weight: bolder;
+    padding: 5px;
+}
+
+.nav_bar a:hover{
+    color:blue;
+}
+
+.nav_bar button:hover{
+    background-color: grey;
+}
+
+form{
+    display: inline;
+}
+
+.button{
+    padding:5px;
 }
 
 .body_base{

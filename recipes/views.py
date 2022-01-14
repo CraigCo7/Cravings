@@ -5,7 +5,6 @@ from django.contrib.auth.decorators import login_required
 from . import forms
 
 # Create your views here.
-@login_required(login_url="/accounts/login/")
 def recipeHome(request):
     recipes = Recipe.objects.all().order_by('date')
     return render(request, 'recipeHome.html', {'recipes':recipes})

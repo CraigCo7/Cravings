@@ -14,15 +14,30 @@
             <div class="logo_container">
                 <h1 class="header_logo">Cravings</h1>
             </div>
-            <ul class="nav_bar">
-                <a href=""><li>Home</li></a>
-                <a href="/recipes"><li>Recipes</li></a>
-                <a href=""><li>Profile</li></a>
-                <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
-                    {% csrf_token %}
-                    <button type="submit">Logout</button>
-                </form>
+            <div class="nav_bar">
+                <ul id="horizontal-list">
+                <li>
+                    <a href="">Home</a>
+                </li>
+                <li>
+                    <a href="/recipes">Recipes</a>
+                </li>
+                <li>
+                    <a href="">Profile</a>
+                </li>
+                {% if user.is_authenticated %}
+                    <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+                        {% csrf_token %}
+                        <li><button type="submit">Logout</button></li>
+                    </form>
+                {% else %}
+                <li>
+                    <a class="button" href="{% url 'accounts:login' %}">Login</a>
+                    <a class="button" href="{% url 'accounts:signup' %}">Signup</a>
+                </li>
+                {% endif %}
             </ul>
+            </div>
         </div>
     </div>
 {% block content %}
